@@ -42,12 +42,6 @@ public class PedidosHTTPPasos {
     @Given("El usuario se encuentra en la latitud {double} y longitud {double}")
     public void elUsuarioSeEncuentraEn(double latitud, double longitud) throws Exception {
 
-        ResultActions resultado = this.contextoCompartido.obtenerResultado();
 
-        resultado.andExpect(status().is(codigoDeEstado))
-                .andExpect(json()
-                        .when(Option.IGNORING_ARRAY_ORDER)
-                        .isEqualTo(respuesta)
-                );
     }
 }
