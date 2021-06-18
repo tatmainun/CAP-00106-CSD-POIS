@@ -1,6 +1,7 @@
 package ar.com.grupoesfera.csd.pois.aceptacion.pasos;
 
 import ar.com.grupoesfera.csd.pois.aceptacion.configuracion.ContextoCompartido;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.javacrumbs.jsonunit.core.Option;
@@ -28,6 +29,18 @@ public class PedidosHTTPPasos {
 
     @Then("recibe la respuesta con codigo de estado {int} y contenido")
     public void recibeLaRespuestaConCodigoDeEstadoYContenido(int codigoDeEstado, String respuesta) throws Exception {
+
+        ResultActions resultado = this.contextoCompartido.obtenerResultado();
+
+        resultado.andExpect(status().is(codigoDeEstado))
+                .andExpect(json()
+                        .when(Option.IGNORING_ARRAY_ORDER)
+                        .isEqualTo(respuesta)
+                );
+    }
+
+    @Given("El usuario se encuentra en la latitud {double} y longitud {double}")
+    public void elUsuarioSeEncuentraEn(double latitud, double longitud) throws Exception {
 
         ResultActions resultado = this.contextoCompartido.obtenerResultado();
 
