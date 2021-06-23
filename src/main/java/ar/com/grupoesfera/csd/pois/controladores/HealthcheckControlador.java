@@ -18,7 +18,7 @@ public class HealthcheckControlador {
     }
 
     @GetMapping("/obtenerPOI")
-    public ResponseEntity<List<Poi>> obtenerPOI(double lat, double lon){
+    public ResponseEntity<List<Poi>> obtenerPOI(@RequestParam("latitud") double lat, @RequestParam("longitud") double lon){
 
         List<Poi> POIList =  new ArrayList<Poi>();
         if (lat == 40.74858271884297 && lon == -73.9856644020032){

@@ -44,4 +44,15 @@ public class PedidosHTTPPasos {
 
 
     }
+
+    @Given("El usuario se encuentra en la latitud {string} y longitud {string}")
+    public void el_usuario_se_encuentra_en_la_latitud_y_longitud(String string, String string2) {
+        // Write code here that turns the phrase above into concrete actions
+
+    }
+    @Given("Existe un punto de interes en la latitud {string} y longitud {string}")
+    public void existe_un_punto_de_interes_en_la_latitud_y_longitud(String string, String string2) {
+        // Write code here that turns the phrase above into concrete actions
+        
+    }
 }
