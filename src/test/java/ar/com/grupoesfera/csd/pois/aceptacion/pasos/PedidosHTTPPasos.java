@@ -39,12 +39,6 @@ public class PedidosHTTPPasos {
                 );
     }
 
-    @Given("El usuario se encuentra en la latitud {double} y longitud {double}")
-    public void elUsuarioSeEncuentraEn(double latitud, double longitud) throws Exception {
-
-    }
-
-
     @When("El usuario intenta obtener un punto de interes")
     public void elUsuarioIntentaObtenerUnPOI() throws Exception{
         double[] ubicacionUsuario = contextoCompartido.obtenerUbicacionUsuario();
