@@ -42,21 +42,18 @@ public class PedidosHTTPPasos {
     @Given("El usuario se encuentra en la latitud {double} y longitud {double}")
     public void elUsuarioSeEncuentraEn(double latitud, double longitud) throws Exception {
 
-        //ResultActions resultado = this.contextoCompartido.obtenerResultado();
-
-        //resultado.andExpect(status().is(codigoDeEstado))
-        //      .andExpect(json()
-        //                .when(Option.IGNORING_ARRAY_ORDER)
-        //               .isEqualTo(respuesta)
-        //        );
     }
+
 
     @When("El usuario intenta obtener un punto de interes")
-    public void elUsuarioIntentaObtenerUnPOI() throws Exception
+    public void elUsuarioIntentaObtenerUnPOI() throws Exception{
         double[] ubicacionUsuario = contextoCompartido.obtenerUbicacionUsuario();
-        ResultActions resultado = mockMvc.perform(get("/obtenerPOI").queryParam("latitud", ubicacionUsuario[0]).queryParam("longitud", ubicacionUsuario[1]));
+        ResultActions resultado = mockMvc.perform(get("/obtenerPOI").queryParam("latitud", Double.toString(ubicacionUsuario[0])).queryParam("longitud", Double.toString(ubicacionUsuario[1])));
         this.contextoCompartido.agregarResultado(resultado);
+
     }
-}
+  }
+
+
 
 
