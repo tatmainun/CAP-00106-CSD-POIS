@@ -13,17 +13,24 @@ public class ServicioPOIControlador {
     @Autowired
     private RepositorioDePoi repositorioPOI;
 
-    public Poi ObtenerPoiMasCercano (double lat, double lon){
+    public Poi ObtenerPoiMasCercano (double latUsuario, double lonUsuario){
         List<Poi> pois = repositorioPOI.findAll();
+        double distancia = Double.MAX_VALUE;
+        Poi poiMasCercano;
 
         pois.forEach(
-                poi -> poi.getLatitud()
-        );
+                poi -> {
+                    double distanciaCalculada = calcularDistancia(poi.getLatitud(), poi.getLongitud(), latUsuario, lonUsuario);
+                    if (distanciaCalculada < distancia) {
+                        distancia = distanciaCalculada;
+                        poiMasCercano = poi;
+                    }
+                });
 
-        return pois.get(2);
+        return poiMasCercano;
     }
 
-    public double CalcularDistancia(double latPoi, double lngPoi, double latUsuario, double lngUsuario){
+    public double calcularDistancia(double latPoi, double lngPoi, double latUsuario, double lngUsuario){
 
         double dLat = Math.toRadians(latPoi - latUsuario);
         double dLng = Math.toRadians(lngPoi - lngUsuario);
