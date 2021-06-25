@@ -1,5 +1,7 @@
 package ar.com.grupoesfera.csd.pois.modelos;
 
+import ar.com.grupoesfera.csd.pois.PoisApplication;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -40,4 +42,5 @@ public class Poi {
     public String getDescripcion() {
         return descripcion;
     }
+
 }

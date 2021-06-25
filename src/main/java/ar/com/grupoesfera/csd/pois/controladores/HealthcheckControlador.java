@@ -8,14 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Math.*;
-import static java.lang.Math.sqrt;
-
 @RestController
 @CrossOrigin
 public class HealthcheckControlador {
-
-    public final static double AVERAGE_RADIUS_OF_EARTH_KM = 6371;
 
     @GetMapping("/ping")
     public ResponseEntity<Pong> obtengoElPongDeLaAplicacion(){

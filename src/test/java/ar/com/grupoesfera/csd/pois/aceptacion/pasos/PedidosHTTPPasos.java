@@ -46,8 +46,5 @@ public class PedidosHTTPPasos {
         this.contextoCompartido.agregarResultado(resultado);
 
     }
-  }
-
-
 
 
