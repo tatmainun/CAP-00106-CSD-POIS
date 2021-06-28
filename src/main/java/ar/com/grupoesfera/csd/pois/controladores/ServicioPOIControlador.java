@@ -9,8 +9,11 @@ import java.util.List;
 
 @Service
 public class ServicioPOIControlador {
-
     @Autowired
+    public ServicioPOIControlador(RepositorioDePoi repositorioPOI) {
+        this.repositorioPOI = repositorioPOI;
+    }
+
     private RepositorioDePoi repositorioPOI;
 
     public Poi ObtenerPoiMasCercano (double latUsuario, double lonUsuario){
@@ -29,7 +32,7 @@ public class ServicioPOIControlador {
         return poiMasCercano;
     }
 
-    public double calcularDistancia(double latPoi, double lngPoi, double latUsuario, double lngUsuario){
+    private double calcularDistancia(double latPoi, double lngPoi, double latUsuario, double lngUsuario){
 
         double dLat = Math.toRadians(latPoi - latUsuario);
         double dLng = Math.toRadians(lngPoi - lngUsuario);
