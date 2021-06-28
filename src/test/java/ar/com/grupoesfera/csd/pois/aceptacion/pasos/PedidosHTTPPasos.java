@@ -40,11 +40,11 @@ public class PedidosHTTPPasos {
     }
 
     @When("El usuario intenta obtener un punto de interes")
-    public void elUsuarioIntentaObtenerUnPOI() throws Exception{
+    public void elUsuarioIntentaObtenerUnPOI() throws Exception {
         double[] ubicacionUsuario = contextoCompartido.obtenerUbicacionUsuario();
         ResultActions resultado = mockMvc.perform(get("/obtenerPOI").queryParam("latitud", Double.toString(ubicacionUsuario[0])).queryParam("longitud", Double.toString(ubicacionUsuario[1])));
         this.contextoCompartido.agregarResultado(resultado);
 
     }
-
+}
 

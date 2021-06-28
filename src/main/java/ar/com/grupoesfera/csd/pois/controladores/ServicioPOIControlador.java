@@ -16,16 +16,15 @@ public class ServicioPOIControlador {
     public Poi ObtenerPoiMasCercano (double latUsuario, double lonUsuario){
         List<Poi> pois = repositorioPOI.findAll();
         double distancia = Double.MAX_VALUE;
-        Poi poiMasCercano;
+        Poi poiMasCercano = null;
 
-        pois.forEach(
-                poi -> {
-                    double distanciaCalculada = calcularDistancia(poi.getLatitud(), poi.getLongitud(), latUsuario, lonUsuario);
-                    if (distanciaCalculada < distancia) {
-                        distancia = distanciaCalculada;
-                        poiMasCercano = poi;
-                    }
-                });
+        for(Poi poi : pois){
+            double distanciaCalculada = calcularDistancia(poi.getLatitud(), poi.getLongitud(), latUsuario, lonUsuario);
+            if (distanciaCalculada < distancia) {
+                distancia = distanciaCalculada;
+                poiMasCercano = poi;
+            }
+        }
 
         return poiMasCercano;
     }

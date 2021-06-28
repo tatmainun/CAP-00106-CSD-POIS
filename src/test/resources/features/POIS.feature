@@ -1,3 +1,4 @@
+@WIP
 Feature: Verificacion de aplicación levantada
 
     Scenario: La aplicacion devuelve el punto de interes mas cercano dadas ciertas coordenadas
